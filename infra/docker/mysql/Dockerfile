@@ -1,4 +1,4 @@
-FROM mysql:5.7.31
+FROM mysql/mysql-server:5.7.28
 LABEL maintainer="ucan-lab <yes@u-can.pro>"
 
 ENV TZ=UTC \
