@@ -26,6 +26,7 @@
                         <i class="far fa-lightbulb"></i> ヒント: Laravel側（バックエンド）のエラーは「storage\logs」に出力されます。 <br>
                     </div>
 
+                    {{results}}
                     // ここにデータを表示
 
                     <hr>
@@ -65,6 +66,7 @@
 
                     // ここにデータを表示
 
+                    {{customers}}
                 </div>
             </div>
         </div>
@@ -81,6 +83,7 @@ export default {
         return {
             results: null,
             items: null,
+            customers: null
         }
     },
     mounted () {
@@ -98,8 +101,16 @@ export default {
             // routes/api.phpにルーティングを設定する
             // Route::get('lesson/selector', 'API\LessonController@index');
             // ↑これがControllerとの紐づけ定義
-            const { data } = await axios.get('/api/lesson/selector')
-            this.results = data
+            await axios.get('/api/customer').then( (data) => {
+                console.log(data)
+                this.customers = data.data
+            })
+
+            await axios.get('/api/lesson/selector').then( (data) => {
+                console.log(data)
+                this.results = data.data
+            })
+
         },
         onBack() {
             this.$router.push({ name: 'home' })

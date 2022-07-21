@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user/info', function (Request $request) {
     return new UserResource($request->user());
 });
 Route::middleware(['auth:api'])->group(function () {
-    
+
     // レポート
     Route::get('report', 'API\ReportController@index');
     Route::post('report', 'API\ReportController@store');
@@ -50,5 +50,6 @@ Route::middleware(['auth:api'])->group(function () {
 
     Route::get('lesson/selector', 'API\LessonController@index');
     ////
+    Route::get('customer', 'API\CustomerController@index');
 
 });

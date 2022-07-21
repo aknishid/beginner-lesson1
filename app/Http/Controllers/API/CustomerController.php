@@ -4,11 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Selector as SelectorResource;
-use App\Item;
-use App\User;
 use Illuminate\Http\Request;
+use App\Customer;
 
-class LessonController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,7 @@ class LessonController extends Controller
     public function index()
     {
         //
-        return response(User::first(), 200)
+        return response(Customer::first(), 200)
                                  ->header('Content-Type', 'text/plain');
     }
 
@@ -65,16 +64,5 @@ class LessonController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * セレクトボックス用
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function selector()
-    {
-        $items = Item::all();
-        return SelectorResource::collection($items);
     }
 }
