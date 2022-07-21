@@ -13,7 +13,7 @@
                         </div>
                     </div>
 
-                    <div class="quesion-header">APIを使って取得したデータを表示しましょう</div>
+                    <div class="quesion-header">APIを使って取得したデータを表示しましょう</div> {{items}}}
                     <div class="d-flex flex-wrap justify-content-start mt-1 mb-2">
                         <div class="d-flex mr-3">
                             <div class="align-self-center">例）version：</div>

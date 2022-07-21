@@ -25,14 +25,14 @@
                         <label for="birthday">お誕生日は？</label>
                         <input type="date" id="birthday" v-model="birthday">
 
-                        <p v-if="age >= 0">{{ age }} 歳ですね！</p>
+                        <p v-if="age !== null">{{ age }} 歳ですね！</p>
                         <p v-else>お誕生日を入力してください。</p>
                     </div>
                     <div class="mb-5">
                         <div class="quesion-header">３．プラスボタン、マイナスボタンで数値を変更できるようにしてください。</div>
                         <label>カウンター</label>
-                        <button style="width:2rem;">+</button>
-                        <button style="width:2rem;">-</button>
+                        <button style="width:2rem;" v-on:click="count += 1">+</button>
+                        <button style="width:2rem;" v-on:click="count -= 1">-</button>
                         {{ count }}
                     </div>
                 </div>
@@ -45,7 +45,6 @@
 <script>
 export default {
     props: {
-        //
     },
     data () {
         return {
@@ -63,11 +62,14 @@ export default {
     },
     computed: {
         total() {
-
+            return (this.$data.left + this.$data.right)
         },
         age() {
-
-        }
+            if (this.birthday === null) {
+                return null
+            }
+            return Math.floor((Date.now()- new Date(this.birthday))/1000/60/60/24/365)
+        },
     },
     methods: {
         onBack() {
