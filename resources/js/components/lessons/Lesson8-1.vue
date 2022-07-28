@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-start mb-3">
                         <div class="mr-auto">
-                            <span class="span-header">Lesson 8</span>
+                            <span class="span-header">Lesson 8-1</span>
                         </div>
                         <div class="align-self-center">
                             <button type="button" class="btn btn-dark" @click="onBack">戻る</button>
@@ -20,8 +20,6 @@
                     <div class="d-flex justify-content-start mb-3">
                         <div class="mr-4">
                             <button type="button" class="btn btn-primary" @click="onNext">Leeson8-1へ</button>
-                            <input type="text" id="lesson8-text" v-model="text">
-                            <button type="button" class="btn btn-primary" @click="onNext2">Leeson8-2へ</button>
                         </div>
                     </div>
                 </div>
@@ -53,9 +51,6 @@ export default {
     methods: {
         onNext() {
             this.$router.push({ name: 'lesson8-1' })
-        },
-        onNext2() {
-            this.$router.push({ name: 'lesson8-2' , params: {aaa: this.$data.text}})
         },
         onBack() {
             this.$router.push({ name: 'home' })

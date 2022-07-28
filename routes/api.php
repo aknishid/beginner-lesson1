@@ -51,5 +51,8 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('lesson/selector', 'API\LessonController@index');
     ////
     Route::get('customer', 'API\CustomerController@index');
+    Route::post('customer/insert', 'API\CustomerController@store');
+    Route::post('customer/update', 'API\CustomerController@update');
+    Route::post('customer/delete', 'API\CustomerController@destroy');
 
 });
